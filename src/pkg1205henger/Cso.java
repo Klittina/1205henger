@@ -1,34 +1,42 @@
 package pkg1205henger;
 
-public class Cso {
+
+public class Cso extends TomorHenger{
     
-private int hengerDarab;
-    private double sugar,magassag, fajsuly, falvastagsag;
+    private double falvastagsag;
 
-    public Cso(double sugar, double magassag, double fajsuly, double falvastagsag) {
-        this.sugar = sugar;
-        this.magassag = magassag;
-        this.fajsuly = fajsuly;
+    public Cso(double falvastagsag, double fajsuly, double sugar, double magassag) {
+        super(fajsuly, sugar, magassag);
         this.falvastagsag = falvastagsag;
     }
 
-    public Cso(double sugar, double magassag, double falvastagsag) {
-        this.sugar = sugar;
-        this.magassag = magassag;
+    public Cso(double fajsuly, double sugar, double magassag) {
+        super(fajsuly, sugar, magassag);
+    }
+    
+
+    public void setFalvastagsag(double falvastagsag) {
         this.falvastagsag = falvastagsag;
     }
 
+    
+    
     public double getFalvastagsag() {
         return falvastagsag;
     }
     
+    @Override
     public double terfogat(){
-        return 0;
+        //return super.terfogat();
+        Henger belso = new Henger(this.getSugar()-this.falvastagsag, this.getMagassag());
+        return super.terfogat()-belso.terfogat();
     }
 
     @Override
     public String toString() {
-        return "Cso{" + "hengerDarab=" + hengerDarab + ", sugar=" + sugar + ", magassag=" + magassag + ", fajsuly=" + fajsuly + ", falvastagsag=" + falvastagsag + '}';
+        return "Cso{" + "falvastagsag=" + falvastagsag + '}';
     }
+   
+    
     
 }

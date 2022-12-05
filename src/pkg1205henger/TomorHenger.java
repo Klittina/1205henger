@@ -13,6 +13,11 @@ public class TomorHenger extends Henger{
         //this(sugar,magassag); -- rekurziv hívás, nem fog lefordulni
     }
 
+    public TomorHenger(double sugar, double magassag) {
+        super(sugar, magassag);
+    }
+    
+
     public void setFajsuly(double fajsuly) {
         this.fajsuly = fajsuly;
     }
@@ -24,12 +29,14 @@ public class TomorHenger extends Henger{
     }
     
     public double suly(){
-        return 0;
+        return super.terfogat() * fajsuly;
     }
 
     @Override
     public String toString() {
-        return "TomorHenger{" + "fajsuly=" + fajsuly + '}';
+        String os = super.toString();
+        return os + "\n\t" + "Tömörhenger{"+"Fajsúly="+fajsuly;
+        //return "TomorHenger{" + "fajsuly=" + fajsuly + '}';
     }
 
     
